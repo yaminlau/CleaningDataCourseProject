@@ -11,9 +11,10 @@ Create R script called run_analysis.R that does the following.
 5) From the above data set, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
 
-## The follow functions were created in the run_analysis.R script to perform the above tasks.
+### The follow functions were created in the run_analysis.R script to perform the above tasks.
 
 getAverageBySubjectActivity (dataDir, writeFile, regexField = "mean\\\\(|std\\\\(") 
+
 aggregated by subject, activity and mean of all the columns in the regexField to the writeFile.
 * dataDir - the directory of the data set
 * writeFile - file to write for the independent tidy data set
@@ -22,12 +23,14 @@ example:  getAverageBySubjectActivity("./UCI HAR Dataset", "summary.txt")
 
 
 mergeTestAndTrainData (dataDir, regexField = "mean\\\\(|std\\\\(")
+
 combine the test and train dataset with the column names that match the regexField, defaulted to mean and std
 * dataDir - the directory of the data set
 * regexField - the fields to extract (defaults to mean and std )
 example:  mergeTestAndTrainData ("./UCI HAR Dataset")
 
-colToExtract (colFile, regexField)
+colToExtract (colFile, regexField= "mean\\\\(|std\\\\(")
+
 extract column with the regex from column file
 * colFile - file that descript the features ( features.txt)
 * regexField - the fields to extract (defaults to mean and std )
@@ -35,6 +38,7 @@ example:  colToExact ("./UCI HAR Dataset/features.txt", "mean\\\\(|std\\\\(")
 
 
 getData (dataFile, activityFile, subjectFile, colList )
+
 extract data from data, activity and subject file and join the data into one set
 * dataFile - the dataset (X_train.txt/X_test.txt)
 * activityFile - the dataset label (y_train.txt/y_test.txt)

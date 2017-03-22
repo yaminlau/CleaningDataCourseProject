@@ -51,7 +51,7 @@ mergeTestAndTrainData <- function (dataDir, regexField = "mean\\(|std\\(")
 
 
 # extract column with the regex from column file
-colToExtract <- function (colFile, regex) {
+colToExtract <- function (colFile, regex = "mean\\(|std\\(") {
 	#read files with column field and only grep the columns that match the regex
 	colLabel <-  read.csv(colFile, sep = " ", header = FALSE)
 	colLabel <- colLabel[grep(regex, colLabel[[2]]),]
